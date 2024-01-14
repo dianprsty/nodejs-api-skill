@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <div class="logo">
+      <img src="/img/ex.jpeg" />
+    </div>
+    <div class="nama">
+      <p><%= nama %></p>
+      <button
+        class="btn btn-add"
+        onclick="window.location.replace('/update-skill')"
+      >
+        Add Skill
+      </button>
+    </div>
+    <table>
+      <tr>
+        <th>No</th>
+        <th>Skill</th>
+        <th>Level</th>
+        <th>Action</th>
+      </tr>
+      <% skill.forEach((element, index) => { %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= element.skillName %></td>
+        <td><%= element.level %></td>
+        <td>
+          <button
+            class="btn btn-edit"
+            value="<%= element.id %>"
+            onclick="edit(event)"
+          >
+            Edit
+          </button>
+          <button
+            class="btn btn-delete"
+            value="<%= element.id %>"
+            onclick="deleteData(event)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      <% }); %>
+    </table>
+    <script>
+      function edit(event) {
+        const id = event.target.value;
+        window.location.replace("/update-skill/" + id);
+      }
+
+      function deleteData(event) {
+        const id = event.target.value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("DELETE", "/skill/" + id, true);
+        xhr.send(null);
+
+        alert("berhasil menghapus data");
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>

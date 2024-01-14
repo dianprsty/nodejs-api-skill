@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo {
+  position: relative;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.logo > img {
+  width: 200px;
+  height: 200px;
+}
+
+.nama {
+  text-align: center;
+  width: 100%;
+  font-size: 32px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.form-input {
+  position: relative;
+  margin: 30px auto;
+  width: 400px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 24px;
+}
+.form-input input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 0px;
+}
+
+.form-input button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Default state */
+.form-input button {
+  color: #ffffff;
+  background-color: #3498db;
+  border: 2px solid #3498db;
+}
+
+/* Hover state */
+.form-input button:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+}
+
+table {
+  width: 80%;
+  margin: 24px auto;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 2px solid black;
+  padding: 4px;
+}
+
+th {
+  background-color: blueviolet;
+  color: white;
+}
+
+td {
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 5;
+}
+
+.btn-edit {
+  background-color: rgb(56, 179, 32);
+}
+
+.btn-delete {
+  background-color: rgb(233, 71, 71);
+}
+
+.btn-add {
+  background-color: #2980b9;
+}

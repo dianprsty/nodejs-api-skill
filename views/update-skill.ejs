@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/css/index.css" />
+
+<div class="form-input">
+  <h2 id="form-title"></h2>
+  <input
+    type="text"
+    placeholder="Skill Name"
+    id="skillName"
+    value="<% if (data.length > 0) %><%=  data[0]?.skillName %>"
+    required
+  />
+  <br />
+  <input
+    type="text"
+    placeholder="level"
+    id="level"
+    value="<% if (data.length > 0)  %> <%= data[0]?.level %>"
+    required
+  /><br />
+  <button id="btn">Input</button>
+</div>
+<p id="skill_id" style="display: none"><%= id && id %></p>
+
+<script>
+  let id = document.getElementById("skill_id").innerText;
+  let formTitle = document.getElementById("form-title");
+
+  if (id > 0) {
+    formTitle.innerText = "Edit Skill Info";
+  } else {
+    formTitle.innerText = "Add Skill Info";
+  }
+  function inputData(skillName, level) {
+    let input = {
+      id,
+      skillName: skillName,
+      level: level,
+    };
+    var data = JSON.stringify(input);
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        console.log(this.responseText);
+      }
+    });
+    if (id > 0) {
+      xhr.open("PUT", "http://localhost:3000/skill");
+    } else {
+      xhr.open("POST", "http://localhost:3000/skill");
+    }
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.send(data);
+    alert("sukses");
+    window.location.replace("/profile/Dian Prasetyo");
+  }
+
+  document.getElementById("btn").addEventListener("click", () => {
+    let skillName = document.getElementById("skillName").value;
+    let level = document.getElementById("level").value;
+    inputData(skillName, level);
+  });
+  console.log(id);
+</script>
